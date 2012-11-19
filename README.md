@@ -16,6 +16,33 @@
 
     $ component install qualiancy/tea-extend
 
+## Usage
+
+### extend (destination, source, ...)
+
+* **@param** _{Object}_ destination 
+* **@param** _{Object}_ sources ...
+* **@return** _{Object}_  destination extended
+
+For each source, shallow merge its key/values to the
+destinatino. Sources are read in order, meaning the same
+key in a later source will overwrite the key's value earlier
+set.
+
+```js
+var extend = require('tea-extend');
+
+// sample objects
+var a = { hello: 'world' }
+  , b = { speak: 'loudly' };
+
+// change a
+extend(a, b);
+
+// shallow clone to c
+var c = extend({}, a);
+```
+
 ## License
 
 (The MIT License)
