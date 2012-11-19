@@ -1,4 +1,4 @@
-# tea-extend
+# tea-extend [![Build Status](https://secure.travis-ci.org/qualiancy/tea-extend.png?branch=master)](https://travis-ci.org/qualiancy/tea-extend)
 
 > Shallow object merge utility.
 
