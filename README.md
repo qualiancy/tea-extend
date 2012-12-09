@@ -33,15 +33,77 @@ set.
 var extend = require('tea-extend');
 
 // sample objects
-var a = { hello: 'world' }
+var a = { hello: 'universe' }
   , b = { speak: 'loudly' };
 
 // change a
 extend(a, b);
+a.should.deep.equal({ hello: 'universe', speak: 'loudly' });
 
 // shallow clone to c
 var c = extend({}, a);
+a.language = 'en';
+
+a.should.deep.equal({ hello: 'universe', speak: 'loudly', language: 'en' });
+c.should.deep.equal({ hello: 'universe', speak: 'loudly' });
 ```
+
+
+### extend.include (props, ...)
+
+* **@param** _{String}_ each property to include as an argument
+* **@return** _{Function}_  reusable include function
+
+Create a new object that only includes the properties
+specified. Unlike `extend()`, the original objects
+will not be modified.
+
+This method will return a function that can be
+reused for the specified properties. Like `extend()`,
+this function accepts an unlimited number of objects
+as parameters to draw from. Also, the same key in later
+specified objects will overwrite earlier specified values.
+
+```js
+var extend = require('tea-extend')
+  , include = extend.include('one', 'two');
+
+var a = { one: 1, three: 3 }
+  , b = { zero: 0, two: 2 };
+
+var c = include(a, b);
+
+c.should.deep.equal({ one: 1, two: 2 });
+```
+
+
+### extend.exclude (props, ...)
+
+* **@param** _{String}_ each property to exclude as an argument
+* **@return** _{Function}_  reusable exclude function
+
+Create a new object that include all but the properties
+specified. Unlike `extend()`, the original objects
+will not be modified.
+
+This method will return a function that can be
+reused for the specified properties. Like `extend()`,
+this function accepts an unlimited number of objects
+as parameters to draw from. Also, the same key in later
+specified objects will overwrite earlier specified values.
+
+```js
+var extend = require('tea-extend')
+  , exclude = extend.exclude('one', 'two');
+
+var a = { one: 1, three: 3 }
+  , b = { zero: 0, two: 2 };
+
+var c = exclude(a, b);
+
+c.should.deep.equal({ three: 3, zero: 0 });
+```
+
 
 ## License
 
