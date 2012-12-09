@@ -1,6 +1,6 @@
 {
     "name": "tea-extend"
-  , "version": "0.1.0"
+  , "version": "0.2.0"
   , "description": "Shallow object merge utility."
   , "author": "Jake Luer <jake@qualiancy.com> (http://qualiancy.com)"
   , "license": "MIT"

@@ -1,7 +1,7 @@
 {
     "name": "tea-extend"
   , "repo": "qualiancy/tea-extend"
-  , "version": "0.1.0"
+  , "version": "0.2.0"
   , "description": "Shallow object merge utility."
   , "license": "MIT"
   , "keywords": [
